@@ -1,0 +1,28 @@
+.views{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 50px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+}
+/*  添加页面翻页动画效果  */
+/*  .v-enter{*/
+/*    opacity: 0;*/
+/*    transform: translateX(100%);*/
+/*  }*/
+/*.v-leave-to{*/
+/*  opacity: 0;*/
+/*  transform: translate(-100%);*/
+/*  position: absolute;*/
+/*}*/
+/*.v-enter-active,*/
+/*.v-leave-active{*/
+/*  transition: all 0.5s ease;*/
+/*}*/
+
