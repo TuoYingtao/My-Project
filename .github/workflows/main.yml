@@ -1,7 +1,7 @@
 
 name: buildAndDeploy
-on:
-  push
+on: 
+   [push]
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest # 我们选择使用最新的ubuntu系统
