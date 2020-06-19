@@ -9,33 +9,33 @@
       "id": "001",
       "text": "图片02",
       "url": "www.cnblogs.com",
-      "img": "../../../static/img/ScrollPicture/slider-1.jpg"
+      "img": "../../static/img/ScrollPicture/slider-1.jpg"
     },
     {
       "id": "002",
       "text": "图片03",
       "url": "www.163.com",
-      "img": "../../../static/img/ScrollPicture/slider-2.jpg"
+      "img": "../../static/img/ScrollPicture/slider-2.jpg"
     },
     {
       "id": "003",
       "text": "图片03",
       "url": "www.163.com",
-      "img": "../../../static/img/ScrollPicture/slider-3.jpg"
+      "img": "../../static/img/ScrollPicture/slider-3.jpg"
     },
     {
       "id": "004",
       "text": "图片04",
       "url": "www.163.com",
-      "img": "../../../static/img/ScrollPicture/slider-4.png"
+      "img": "../../static/img/ScrollPicture/slider-4.png"
     }
   ],
   "clothing": [
     {
       "id": "1",
       "category":"时尚",
-      "price": "￥122",
-      "price2": "￥220",
+      "price": "122.333",
+      "price2": "220",
       "uniquekey":"e537beb577ef762b9f62165785585c99",
       "title":"[女装搭配]第一次约会怎么穿搭？",
       "date":"2019-10-30 20:22",
@@ -69,8 +69,8 @@
     {
       "id": "2",
       "uniquekey":"7b900a8d4fed177c88fb084e40b7eb94",
-      "price": "￥125",
-      "price2": "￥241",
+      "price": "125.9887",
+      "price2": "241",
       "title":"[女装搭配]适合25岁女生的气质穿搭！",
       "date":"2019-10-30 20:21",
       "slogan": "原封未拆，厂商授权！【服务】顺丰配送，7天无理由退货！",
@@ -105,8 +105,8 @@
     {
       "id": "3",
       "uniquekey":"9d4a6a3a0b2e3aacab681e9c1da21b5a",
-      "price": "￥165",
-      "price2": "￥284",
+      "price": "165",
+      "price2": "284",
       "title":"潮人必选秋冬服饰！集经典和环保的时尚系列",
       "date":"2019-10-30 20:18",
       "slogan": "原封未拆，厂商授权！【服务】顺丰配送，7天无理由退货！",
@@ -141,8 +141,8 @@
     {
       "id": "4",
       "uniquekey":"d0579bdf38bc1d61c9ec86f2a5ff069d",
-      "price": "￥142",
-      "price2": "￥241",
+      "price": "142",
+      "price2": "241",
       "title":"[秋冬孕妇装]适合孕妇穿的秋款时尚套装",
       "date":"2019-10-30 20:17",
       "slogan": "原封未拆，厂商授权！【服务】顺丰配送，7天无理由退货！",

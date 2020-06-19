@@ -22,7 +22,8 @@ const store = new Vuex.Store ({
   },
 
   getters:{                 //=>监听数据变化
-    getStorage(state){    //=>获取本地存储的登录信息
+    //=>获取本地存储的登录信息
+    getStorage(state){
       if (!state.token){
         state.token = JSON.parse(localStorage.getItem(key))
       }
@@ -49,6 +50,7 @@ const store = new Vuex.Store ({
       let all_money = 0;
       state.cart.forEach((item) =>{
         if (item.seleced === true){
+          console.log(item.all_money);
           all_money += item.price * item.count;
         }
       });
@@ -192,13 +194,13 @@ router.afterEach(function (to) {
 
 //=>axios请求加载Loading
 Axios.interceptors.request.use(config => {
-  console.log('ajax begin request');
+  // console.log('ajax begin request');
   store.commit('ajaxStar');
   return config;
 });
 
 Axios.interceptors.response.use(config => {
-  console.log('ajax get response');
+  // console.log('ajax get response');
   store.commit('ajaxEnd');
   return config
 });

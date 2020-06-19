@@ -3,7 +3,6 @@
     <div class="div">
       <div class="background">
         <div class="shoppingche" v-for="(item,number) in list" :key="item.id">
-			<router-link :to="'/Detalis/ClothingDetails/' + item.id">
         <input class="shoppingche-checkbox" type="checkbox" v-model="item.seleced">
         <div class="shoppingche-img">
           <!-- 给图片添加懒加载 v-lazy -->
@@ -12,9 +11,11 @@
           <img v-lazy="item.img" alt="">
         </div>
         <div class="shoppingche-title">
-          <div class="shoppingche-title-shop">杏花店铺</div>
-          <div class="shoppingche-title-item">{{ item.price_title }}</div>
-          <div class="shoppingche-price">{{ item.price }}</div>
+          <router-link :to="'/Detalis/ClothingDetails/' + item.id">
+          <div class="shoppingche-size shoppingche-title-shop">杏花店铺</div>
+          <div class="shoppingche-size shoppingche-title-item">{{ item.price_title }}</div>
+          <div class="shoppingche-size shoppingche-price">{{ item.price | countPrice(2) }}</div>
+          </router-link>
           <div class="shoppingche-delete" v-show="flag" @click="deleteCart(item.id)">删除</div>
           <div class="shoppingche-number">
             <button class="shoppingche-reduce" v-show="flag" type="button" @change="add()" @click="cuts(number)">-</button>
@@ -24,13 +25,13 @@
             <button class="shoppingche-plus" v-show="flag" type="button" @change="add()" @click="plus(number)">+</button>
           </div>
         </div>
-		</router-link>
+
         </div>
         <div class="purchase">
           <div class="shoppingche-item">
             <input type="checkbox" @click="changeSelectState" v-model="seleced" >
             <samp class="shoppingche-edit" @click="flag = !flag">编辑</samp>
-            <div class="shoppingche-num">总价：￥ {{ getGoodsAmount }}</div>
+            <div class="shoppingche-num">总价: {{ getGoodsAmount | countPrice(2) }}</div>
             <button @click="showPopup">立即购买</button>
           </div>
         </div>
@@ -41,20 +42,27 @@
 
 <script>
   import { mapMutations,mapGetters } from "vuex";
+  import login from "../userlogin/login";
     export default {
         data() {
             return {
                 flag: false,
                 list: [],   // 购物车商品数据
+                price: null,
                 seleced:true,  //控制是否全选 默认为未选状态
             }
+        },
+        filters:{
+          countPrice(count,n){
+            return '￥' + parseFloat(count).toFixed(n)
+          }
         },
         mounted() {
             this.localhostList();
             this.changeAllChecked();
         },
         computed:{
-                ...mapGetters(["totlePrice","getGoodsChecked","getGoodsAmount",])
+                ...mapGetters(["totlePrice","getGoodsChecked","getGoodsAmount",]),
         },
         methods: {
             ...mapMutations(["updateGoodsCount","changeSelectState"]),
@@ -166,7 +174,10 @@
           height: 30px;
           margin: 7px 10px 0 20px;
           font-size: 15px;
-		  color: #797979;
+		      color: #797979;
+          .shoppingche-size{
+            color: dimgrey;
+          }
           .shoppingche-title-shop{
             color: #5a5a5a;
             margin: 0 0 7px 0;

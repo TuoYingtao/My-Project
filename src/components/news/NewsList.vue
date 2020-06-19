@@ -1,47 +1,35 @@
 <template>
-<div>
-  <Loading v-model="ajaxIsLoading"></Loading>
-  <van-pull-refresh class="van-pull-refresh"
-                    v-model="isLoading"
-                    loosing-text="释放即可刷新...."
-                    animation-duration=500
-                    head-height= 0
-                    @refresh="onRefresh"
-  >
-  <ul class="mui-table-view"
-      v-infinite-scroll="load"
-      infinite-scroll-disabled="disabled"
-      infinite-scroll-distance="200"
-      infinite-scroll-immediate = "true">
-    <li class="mui-table-view-cell mui-media" v-for="item in newslist" :key="item.id">
-      <router-link :to="'/home/newsinfo/' + item.id">
-        <img class="mui-media-object mui-pull-left" v-lazy="item.img_url">
-
-        <div class="mui-media-body">
-          <h1>{{ item.title }}</h1>
-          <p class='mui-ellipsis'>
-            <span>发表时间：{{ item.date | dateFormat('YYYY-MM-DD') }}</span>
-            <span>类型：{{ item.category }}</span>
-          </p>
-        </div>
-      </router-link>
-    </li>
-  </ul>
-    <p v-if="loading">加载中....</p>
-    <p v-if="noMore">暂无更多数据</p>
-  </van-pull-refresh>
+<div id="newsList">
+  <scroll class="content"
+          ref="scroll"
+          :probe-type="3"
+          :pull-up-load="true"
+          @scroll="contentScroll"
+          @pullingUp="loadMore">
+  <!-- <Loading v-model="ajaxIsLoading"></Loading> -->
+    <commo-news :is-data-list="newsLists"></commo-news>
+    <!-- <p v-if="loading">加载中....</p>
+    <p v-if="noMore">暂无更多数据</p> -->
+  </scroll>
 </div>
 </template>
 
 <script>
+  import Scroll from "../commion/scroll/Scroll";
+  import CommoNews from '@/components/commion/List/CommoNews'
     import { Loading } from 'vux'
     import { mapState } from 'vuex'
     import { Toast } from  "mint-ui";
     export default {
+      components:{
+        Loading,
+        Scroll,     //=> 注册BetterScroll组件
+        CommoNews,   //=> 注册服装详情列表
+      },
         data(){
             return{
                 isLoading:false,
-                newslist:[],
+                newsLists:[],
                 count: 10,
                 loading: false
             }
@@ -51,13 +39,21 @@
             noMore() { return this.count >= 20 },
             disabled() { return this.loading || this.noMore },
         },
-        components:{
-            Loading
-        },
         created(){
           this.getNewsList();
         },
         methods:{
+          //=> 上拉加载更多
+          loadMore(){
+            console.log('------');
+          },
+          //=> 点击返回顶部
+          contentScroll(position){
+            //=> 1.返回顶部的实现
+            //=> position.y是scroll中实时监听的y坐标；（为负值）
+            //=> 当y滚动到1000的时候，就将this.backtop为true
+            this.isShowBackTop = (-position) > 1000
+          },
             load () {
                 this.loading = true;
                 setTimeout(() => {
@@ -73,16 +69,11 @@
             },
             getNewsList(){
                 //获取服装资讯列表
-                axios.get('./static/Snake.json',
-                    {
-                        'headers':{
-                            'Content-Type':'Access-Control-Allow-Origin:*,Access-Control-Allow-Method:POST,GET,PUT,DELETE,OPTIONS',
-                        }
-                    }
-                ).then(result => {
+                axios.get('./static/Snake.json').then(result => {
                     if (result.data.status === 0){
                         //如果没有失败，应该把数据保存在data上
-                        this.newslist = result.data.clothing;
+                        this.newsLists = result.data.clothing;   
+                        console.log(this.newsLists)                 
                     }else{
                         Toast('获取服装资讯失败。。。')
                     }
@@ -93,44 +84,34 @@
 </script>
 
 <style lang="scss" scoped>
+  #newsList{
+    position: relative;
+    height: 100vh;
+  }
+  .content{
+    overflow: hidden;
+    position: absolute;
+    top: 40px;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+  }
   //给下拉刷新添加样式
   .van-pull-refresh{
     text-align: center;
     color: #999999;
   }
-  /*  设置图片懒加载样式*/
-  img[lazy=error] { }
-  img[lazy=loaded] { }
+   /*  设置图片懒加载样式*/
+  img[lazy=error] {
+    width: 40px;
+    height: 100px;
+   }
+  img[lazy=loaded] {
+    width: 40px;
+    height: 100px;
+  }
   img[lazy=loading]{
     width: 40px;
     height: 100px;
   }
-.mui-table-view{
-  width: 100%;
-  height: 100%;
-
-  li{
-    width: 100%;
-    height: 80px;
-    img{
-      width: 70px;
-      height: 60px;
-    }
-    h1{
-      font-size: 14px;
-      height: 20px;
-    }
-    mui-media-body{
-      width: 150px;
-      float: right;
-    }
-    .mui-ellipsis{
-      font-size: 12px;
-      color: #007aff;
-      //设置左右对齐
-      display: flex;
-      justify-content: space-between;
-    }
-  }
-}
 </style>

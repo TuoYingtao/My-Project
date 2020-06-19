@@ -36,6 +36,10 @@ let webpackConfig = {
         options: vueLoaderConfig
       },
       {
+        test: /\.less$/,
+        loader: "style-loader!css-loader!less-loader",
+      },
+      {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
@@ -64,10 +68,6 @@ let webpackConfig = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       },
-      {
-        test:/\.less$/,
-        loader: "style-loader!css-loader!less-loader"
-      }
     ]
   },
   node: {

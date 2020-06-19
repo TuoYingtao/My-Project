@@ -1,4 +1,4 @@
-﻿# my-vue-project
+﻿# my-vue-projectV🎡
 
 > Vue.js 服装商城App
 
@@ -91,7 +91,7 @@ npm install postcss-pxtorem --save
             }
         }
     </style>
-   
+
 4.配置好less,就可以使用rem
     4.1在js里新建一个loader.js,之后，在写css时，只要将px单位替换成rem，这里设置的比例是100px=1rem,例如，宽度为100px时，可以直接写成1rem。也可以写在index.html的script里。
     fnResize()
@@ -193,20 +193,20 @@ import { mapState } from 'vuex'
 #### 路由懒加载(按需加载)
 按需加载,当渲染其他页面时才加载其组件,并缓存,减少首屏加载时间
 ##### 路由懒加载有三种方式
-* 第一种：Vue异步组件技术     
+* 第一种：Vue异步组件技术
 vue-router配置路由，使用vue的异步组件技术，可以实现按需加载（懒加载）。
 但是，这种情况下一个组件生成一个js文件。
 ```text
         {
             path: '/promisedemo',
             name: 'PromiseDemo',
-            component: 
+            component:
               resolve =>  require(['../components/PromiseDemo'], resolve)
         }
 ```
-* 第二种：es提案的import()     
-推荐使用这种方式(需要webpack > 2.4)   
-webpack官方文档：webpack中使用`import()`    
+* 第二种：es提案的import()
+推荐使用这种方式(需要webpack > 2.4)
+webpack官方文档：webpack中使用`import()`
 vue官方文档：路由懒加载使用`import()`
 ```text
 // 下面2行代码，没有指定webpackChunkName，每个组件打包成一个js文件。
@@ -230,10 +230,10 @@ export default new Router({
     ]
 })
 ```
-* 第三种:webpack提供的require.ensure()    
+* 第三种:webpack提供的require.ensure()
 vue-router配置路由，使用webpack的require.ensure技术，也可以实现按需加载。
 这种情况下，多个路由指定相同的chunkName，会合并打包成一个js文件。
-```text
+```
         {
               path:'/search',
               name:'SearchContainer',
@@ -243,5 +243,31 @@ vue-router配置路由，使用webpack的require.ensure技术，也可以实现�
               name:'ShopcarContainer',
               component: r => require.ensure([],() => r(require('@/components/tabbar/ShopcarContainer')),'demo'),
             },
+```
+## better-scroll的封装使用
+### 1、首先将better-scroll封装成一个单独的组件。因为移动端一个项目中有很多地方需要
+* 1、通过`npm install better-scroll --save` 来安装
+* 2、新建一个`better-scroll.vue`组件，在`<template>`中写入下面的代码
+`wrapper` 下面一定只能有一个标签 `content`，后面需要滚动的组件使用`slot`插入到`content`下面。
+```html
+<template>
+  <div class="wrapper" ref="wrapper">
+      <div class="content">
+          <slot></slot>
+      </div>
+  </div>
+</template>
+```
+* 3、在`<script>`中先导入`better-scroll`
+```js
+// 导入better-scroll
+  import BScroll from 'better-scroll'
+  export default {
+    name:'BetterScroll',
+    }
+```
+* 4、在`mounted`钩子函数中创建一个`Scroll`对象。需要使用$refs来获取`wrapper``DOM`对象,而在`created`中使用`$refs`是获取不到`DOM`对象的。
+```js
+
 ```
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

@@ -53,14 +53,6 @@ let router = new Router({
       }
     }, {
       //=>配置服装资讯默认路径
-      path:'/home/newslist',
-      name:'NewsList',
-      component: r => require.ensure([],() => r(require('@/components/news/NewsList')),'demo'),
-      meta:{
-        title:'服装列表页面',
-        type:'token'
-      }
-    }, {
       path:'/home/newsinfo/:id',
       name:'NewsInfo',
       component: r => require.ensure([],() => r(require('@/components/news/newsinfo/Newsinfo')),'demo'),
@@ -94,8 +86,7 @@ let router = new Router({
         title:'购买服装详情页面',
         type:'token'
       }
-    }
-
+    },
   ],
   linkActiveClass:'muiMin-active'  //覆盖默认的路由高亮类，默认的类叫做 router-link-active
 });

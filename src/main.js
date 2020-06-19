@@ -18,8 +18,7 @@ import moment, { min } from 'moment'        //=>导入格式时间插件    npm 
 Vue.filter('dateFormat',function (dataStr,pattern = "YYYY-MM-DD HH:mm:ss") {    //=>定义一个时间的全局过滤器
   return  moment(dataStr).format(pattern)
 });
-
-
+import '../static/iconfont/iconfont'
 import 'mint-ui/lib/style.css'                    //=>引入Mint-ui.css样式 否则没有效果
 import 'element-ui/lib/theme-chalk/index.css'     //=>引入ElementUI样式
 import '../static/css/mui.min.css'                //=>导入Mui的样式

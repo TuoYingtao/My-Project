@@ -1,9 +1,9 @@
 <template>
   <div>
     <!--  顶部Header 区域    -->
-<!--    <mt-header fixed title="商品详情">-->
-<!--        <mt-button icon="back" @click="text" slot="left">返回</mt-button>-->
-<!--    </mt-header>-->
+    <mt-header fixed title="商品详情">
+        <mt-button icon="back" @click="text" slot="left">返回</mt-button>
+    </mt-header>
     <div class="clothing-details">
   <!--  服装详情轮播  -->
       <div class="clothing-details-img">

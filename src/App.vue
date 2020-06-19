@@ -55,7 +55,6 @@
       home: function () {
         this.folact = false;
         if (this.$route.path === '/home') {
-          console.log(this.$route.meta);
           return this.title = '鑫华服装'
         } else {
           return this.folact = true;
@@ -75,13 +74,10 @@
         this.$router.go(-1);              //=>返回上一给页面
       },
     },
-    beforeCreate() {
-      document.querySelector('body').setAttribute('style', 'background-color:#fff')
-    },
   }
 </script>
 
-<style lang="less" scoped>
+<style scoped>
   @import url('../static/css/App.css');
   //=>隐藏滚动条
   ::-webkit-scrollbar {
