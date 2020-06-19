@@ -11,6 +11,6 @@ jobs:
       uses: jenkey2011/vuepress-deploy@master
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BRANCH: gh-pages
+        BRANCH: vue-pages
         FOLDER: build
         BUILD_SCRIPT: npm install && npm run build
