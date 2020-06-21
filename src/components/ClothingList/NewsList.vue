@@ -1,43 +1,47 @@
 <template>
 <div id="newsList">
+  <loading v-model="isLoading" />
   <scroll class="content"
           ref="scroll"
           :probe-type="3"
           :pull-up-load="true"
           @scroll="contentScroll"
           @pullingUp="loadMore">
-  <!-- <Loading v-model="ajaxIsLoading"></Loading> -->
-    <commo-news :is-data-list="newsLists"></commo-news>
-    <!-- <p v-if="loading">加载中....</p>
-    <p v-if="noMore">暂无更多数据</p> -->
+    <commo-news :is-data-list="newsLists" 
+                :text-data="text"/>
+
   </scroll>
 </div>
 </template>
 
 <script>
-  import Scroll from "../commion/scroll/Scroll";
-  import CommoNews from '@/components/commion/List/CommoNews'
-    import { Loading } from 'vux'
-    import { mapState } from 'vuex'
-    import { Toast } from  "mint-ui";
+  import Scroll from '../commion/scroll/Scroll'
+  import CommoNews from '../commion/List/CommoNews'
+  import { Loading } from 'vux'
+  import { mapState } from 'vuex'
+  import { Toast } from  "mint-ui";
     export default {
       components:{
-        Loading,
-        Scroll,     //=> 注册BetterScroll组件
+        Loading,     //=> 加载
+        Scroll,      //=> 注册BetterScroll组件
         CommoNews,   //=> 注册服装详情列表
       },
         data(){
             return{
-                isLoading:false,
                 newsLists:[],
                 count: 10,
-                loading: false
+                isLoading:false,
+                text: '这是父组件传递的信息'
             }
         },
         computed:{
-            ...mapState({ ajaxIsLoading: state => state.axios.ajaxIsLoading }),
-            noMore() { return this.count >= 20 },
-            disabled() { return this.loading || this.noMore },
+            ...mapState({ 
+              ajaxIsLoading: state => state.axios.ajaxIsLoading, 
+              isLoadings: state => state.vux.isLoading
+            }),
+            childrenData(property){
+              console.log(property)
+          },
         },
         created(){
           this.getNewsList();
@@ -60,12 +64,6 @@
                     this.count += 2;
                     this.loading = false
                 }, 1000)
-            },
-            onRefresh() {
-                setTimeout(() => {
-                    this.isLoading = false;
-                    Toast("刷新成功")
-                }, 2000);
             },
             getNewsList(){
                 //获取服装资讯列表
@@ -95,11 +93,6 @@
     bottom: 50px;
     left: 0;
     right: 0;
-  }
-  //给下拉刷新添加样式
-  .van-pull-refresh{
-    text-align: center;
-    color: #999999;
   }
    /*  设置图片懒加载样式*/
   img[lazy=error] {

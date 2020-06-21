@@ -1,3 +1,11 @@
+/*
+ * @PageName: 购买服装页面
+ * @Author: BeautifulGirl230 
+ * @Date: 2020-06-21 17:54:10 
+ * @Last Modified by: BeautifulGirl230
+ * @Last Modified time: 2020-06-21 18:07:55
+ */
+
 <template>
   <div id="div">
     <!--  顶部Header 区域    -->

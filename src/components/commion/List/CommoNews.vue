@@ -1,6 +1,6 @@
 <template>
 <div class="divMin">
-  <div class="mui-view" v-for="(item, index) in isDataLisat" :key="index">
+  <div class="mui-view" v-for="(item, index) in isDataList" :key="index">
       <router-link :to="'/home/newsinfo/' + item.id">
         <div class="mui-media-object mui-pull-left"><img v-lazy="item.img_url"></div>
         <div class="textbody">
@@ -24,42 +24,56 @@ export default {
           default: ()=>{
             return null
           }
+        },
+        textData:{
+          type: String,
+          default: function (){
+            return "父组件暂未传递数据"
+          }
         }
+    },
+    data(){
+      return{
+        childrenData: "子组件"
+      }
     },
     created() {
       console.log(this.isDataList);
+      console.log(this.textData)
     },
+    mounted(){
+      this.$emit('childrenData',this.childrenData)
+    }
 }
 </script>
 
 <style lang="scss" scoped>
-.divMin{
-  height: 100vh;
-}
 .mui-view{
-  width: 100%;
+  width: 97%;
   height: 155px;
   background-color: #ffffff;
-  padding: 10px 0 10px 0;
+  // padding: 4px 0 4px 0;
+  border-radius: 15px;
+  margin: 5px 0 5px 5px;
   .mui-media-object{
     width: 32%;
     height: 100%;
       img{
-        width: 110px;
-        height: 140px;
-        padding: 0 5px 5px 5px;
+        width: 90%;
+        height: 100%;
+        padding: 3px 3px 3px 2px;
+        margin: 0 3px 0 3px;
         border-radius: 15px;
-        box-shadow: 5px 5px 6px #888;
+        box-shadow: 3px 0 4px rgb(195, 195, 195);
       }
     }
   .textbody{
-    width: 66%;  
+    width: 68%;  
     height: 100%;
     float: left;
-    padding-left: 5px;
-    border: solid 2px rgba(228, 228, 228, 0);
-    border-radius: 5px;
-    box-shadow: 1px 1px 8px #888;
+    padding: 4px 0 0 4px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 4px #888;
     .tableTitle{
       width: 100%;
       color: rgba(0, 0, 0, 0.726);
@@ -76,7 +90,7 @@ export default {
       color: rgba(0, 0, 0, 0.671);
       font-size: 12px;
       font-weight: 100;
-      text-indent: 2em;
+      text-indent: 1em;
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 3;

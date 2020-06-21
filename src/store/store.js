@@ -189,16 +189,17 @@ router.beforeEach(function (to, from, next) {
 router.afterEach(function (to) {
   setTimeout(() => {
     store.commit('updateLoadingStatus', {isLoading: false})
-  }, 300)
+  }, 3000)
 });
 
 //=>axios请求加载Loading
 Axios.interceptors.request.use(config => {
   // console.log('ajax begin request');
   store.commit('ajaxStar');
-  return config;
+    return config;
 });
 
+//=> axios响应加载Loading
 Axios.interceptors.response.use(config => {
   // console.log('ajax get response');
   store.commit('ajaxEnd');

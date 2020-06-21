@@ -9,7 +9,9 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    <!-- 使用proxyTable进行跨域设置 -->
+    /* 
+    * 使用proxyTable进行跨域设置
+    */
     proxyTable: {
       '/api':{
         target:'http://localhost:8081/',   //后端接口原地址 设置你调用的接口域名和端口号, 别忘了加http

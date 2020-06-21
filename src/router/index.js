@@ -52,10 +52,19 @@ let router = new Router({
         type:''
       }
     }, {
+      //=>配置服装资讯列表
+      path:'/home/NewsList',
+      name:'NewsList',
+      component: r => require.ensure([],() => r(require('@/components/ClothingList/NewsList')),'demo'),
+      meta:{
+        title:'服装列页面',
+        type:'token'
+      }
+    },{
       //=>配置服装资讯默认路径
       path:'/home/newsinfo/:id',
       name:'NewsInfo',
-      component: r => require.ensure([],() => r(require('@/components/news/newsinfo/Newsinfo')),'demo'),
+      component: r => require.ensure([],() => r(require('@/components/ClothingList/newsinfo/Newsinfo')),'demo'),
       meta:{
         title:'服装详情页面',
         type:'token'

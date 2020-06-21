@@ -174,7 +174,7 @@
         },
         methods:{
            getLunbotu(){
-               axios.get('/static/Snake.json').then(result => {
+               axios.get('./static/Snake.json').then(result => {
                    if (result.data.status === 0){
                        //获取成功
                        this.lunbotuList = result.data.message;
@@ -230,11 +230,13 @@
     .back-top{
       z-index:9;
     }
-    //=> 给子组件轮播图设置样式 或是//deep
+    //=> 给子组件轮播图设置样式 或是/deep/
+    .chart{
+        overflow: hidden;
+    }
     .chart >>> img{
-      border-radius: 25px 25px 0 0;
-      padding-right: 10px;
-      padding-left: 10px;
+      padding: 10px;
+      border-radius: 19px;
     }
     //=> 六宫格样式
       .mui-grid-view{
