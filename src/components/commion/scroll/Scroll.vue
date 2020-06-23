@@ -54,8 +54,7 @@
               //=> 2.实时监听滚动的位置，实现返回顶部按钮的功能
               this.scroll.on('scroll',(position) => {
                 //=> 将监听的数据坐标发射出去，父组件用来接收处理
-                // this.scroll.refresh();
-                console.log(this.scroll.maxScrollY);
+                // console.log(this.scroll.maxScrollY);
                 this.$emit('scroll',position)
               });
               //=> 3.监听上拉事件，实现加载更多
@@ -69,8 +68,12 @@
         },50)
       },
       methods:{
+        refresh(){
+          this.scroll && this.scroll.refresh();
+          console.log('重新获取页面高度');
+        },
         finishPullUp(){
-          this.scroll.finishPullUp();
+         this.scroll && this.scroll.finishPullUp();
         },
         /*
         * 回到顶部事件
@@ -78,7 +81,7 @@
         * itme：回到顶部时长
         * */
         scrollTo(x,y,itme=500){
-          this.scroll.scrollTo(x,y,itme)
+         this.scroll && this.scroll.scrollTo(x,y,itme)
         }
       }
     }

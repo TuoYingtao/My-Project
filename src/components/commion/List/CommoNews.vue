@@ -2,7 +2,9 @@
 <div class="divMin">
   <div class="mui-view" v-for="(item, index) in isDataList" :key="index">
       <router-link :to="'/home/newsinfo/' + item.id">
-        <div class="mui-media-object mui-pull-left"><img v-lazy="item.img_url"></div>
+        <div class="mui-media-object mui-pull-left">
+          <img v-lazy="item.img_url" @load="imageLoad">
+        </div>
         <div class="textbody">
           <div class="tableTitle">{{ item.title }}</div>
           <div class="item-text">{{ item.price_item }}</div>
@@ -17,6 +19,7 @@
 </template>
 
 <script>
+import { Store } from 'vuex'
 export default {
     props:{
         isDataList:{
@@ -34,15 +37,20 @@ export default {
     },
     data(){
       return{
-        childrenData: "子组件"
+        childrenData: "子组件",
+        loadimg: false,
       }
     },
     created() {
-      console.log(this.isDataList);
       console.log(this.textData)
     },
     mounted(){
       this.$emit('childrenData',this.childrenData)
+    },
+    methods:{
+      imageLoad(){
+        this.$emit('itemImageLoad',this.loadimg)
+      }
     }
 }
 </script>

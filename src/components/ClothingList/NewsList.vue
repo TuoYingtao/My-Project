@@ -2,12 +2,13 @@
 <div id="newsList">
   <loading v-model="isLoading" />
   <scroll class="content"
-          ref="scroll"
+          ref="scrollDom"
           :probe-type="3"
           :pull-up-load="true"
           @scroll="contentScroll"
           @pullingUp="loadMore">
-    <commo-news :is-data-list="newsLists" 
+    <commo-news @itemImageLoad="itemImageLoad" 
+                :is-data-list="newsLists" 
                 :text-data="text"/>
 
   </scroll>
@@ -46,7 +47,16 @@
         created(){
           this.getNewsList();
         },
+        mounted(){
+          
+        },
         methods:{
+          itemImageLoad(state){
+            if (state) { 
+              this.utils.debounce(this.$refs.scrollDom.refresh(),500);            
+            }
+          },
+
           //=> 上拉加载更多
           loadMore(){
             console.log('------');
@@ -70,8 +80,7 @@
                 axios.get('./static/Snake.json').then(result => {
                     if (result.data.status === 0){
                         //如果没有失败，应该把数据保存在data上
-                        this.newsLists = result.data.clothing;   
-                        console.log(this.newsLists)                 
+                        this.newsLists = result.data.clothing;                  
                     }else{
                         Toast('获取服装资讯失败。。。')
                     }

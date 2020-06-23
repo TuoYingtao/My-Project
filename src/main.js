@@ -2,7 +2,7 @@ const FastClick = require('fastclick');     //=>引入vux库里的 fastclick 来
 FastClick.attach(document.body);
 import 'intersection-observer';             //=>组件懒加载  兼容低版本的浏览器
 import Vue from 'vue'                       //=>入口文件
-import Vuex from 'vuex'
+// import Vuex from 'vuex'
 import infiniteScroll from 'vue-infinite-scroll'
 import App from './App'                     //=>导入App根组件
 import router from './router'               //=>1.3 导入自己的 loading.js 路由模块
@@ -35,9 +35,12 @@ Vue.use(Lazyload,{
   attempt: 1,                                     //=>加载错误后最大尝试次数 默认值:3
 });
 
+import util from './util/debounces';
+Vue.prototype.utils = util;
+
 import Axios from './api/config';
 Vue.config.productionTip = false;
-Vue.use(Vuex);
+
 Vue.use(Search);        //=>注册全局配置 搜索框
 Vue.use(PullRefresh);   //=>注册全局配置 下拉刷新
 Vue.use(ElementUI);     //=>注册全局配置

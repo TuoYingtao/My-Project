@@ -5,7 +5,7 @@
       <!--   在使用 v-for 循环时，一定要用 key 绑定   -->
       <mt-swipe-item v-for="(item,i) in chartData" :key="i">
         <div class="mt-img">
-        <img v-lazy="item.img">
+        <img v-lazy="item.img" @load="imageLoad">
         <!-- {{ item.img }} -->
         </div>
       </mt-swipe-item>
@@ -21,6 +21,11 @@
           default: ()=>{
             return
           }
+        }
+      },
+      methods:{
+        imageLoad(){
+          console.log(1);
         }
       }
     }

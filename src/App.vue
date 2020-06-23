@@ -35,7 +35,7 @@
 </template>
 
 <script>
-  import {mapGetters} from "vuex";
+  import {mapGetters, Store} from "vuex";
 
   export default {
     provide() {                                  //=>父组件中通过provide来提供变量，在子组件中通过inject来注入变量。
@@ -51,7 +51,12 @@
       }
     },
     computed: {
-      ...mapGetters(["getAllCount"]),
+      ...mapGetters(['getAllCount']),
+      // getAllCount(){
+      // //  return this.$store.getters.getAllCount
+      //  console.log(this.$store.getters.getAllCount)
+      //  console.log(this.store)
+      // },
       home: function () {
         this.folact = false;
         if (this.$route.path === '/home') {
@@ -62,6 +67,9 @@
         }
         return false;
       },
+    },
+    created(){
+      // this.getAllCount();
     },
     methods: {
       reload() {                                //=>点击页面刷新
@@ -79,7 +87,7 @@
 
 <style scoped>
   @import url('../static/css/App.css');
-  //=>隐藏滚动条
+  /* 隐藏滚动条 */
   ::-webkit-scrollbar {
     width: 0 !important;
   }

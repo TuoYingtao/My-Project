@@ -12,7 +12,7 @@
                   @pullingUp="loadMore">
       <div></div>
   <!-- 轮播图区域  -->
-      <chart class="chart" :chart-data="lunbotuList"/>
+      <chart ref="chart" class="chart" :chart-data="lunbotuList"/>
   <!--  六宫格 -->
       <div class="mui-grid-view">
         <div class="mui-table-view-cell">

@@ -1,6 +1,6 @@
-//=>监听数据变化
 export default {
-  getStorage(state){    //=>获取本地存储的登录信息
+  //=>获取本地存储的登录信息
+  getStorage(state){
     if (!state.token){
       state.token = JSON.parse(localStorage.getItem(key))
     }
@@ -27,6 +27,7 @@ export default {
     let all_money = 0;
     state.cart.forEach((item) =>{
       if (item.seleced === true){
+        console.log(item.all_money);
         all_money += item.price * item.count;
       }
     });
