@@ -1,5 +1,13 @@
-const FastClick = require('fastclick');     //=>引入vux库里的 fastclick 来实现移除移动端页面点击延迟    npm install fastclick -S
-FastClick.attach(document.body);
+// const FastClick = require('fastclick');     //=>引入vux库里的 fastclick 来实现移除移动端页面点击延迟    npm install fastclick -S
+// FastClick.attach(document.body);
+
+import FastClick from 'fastclick' // 解决移动端300毫秒延迟
+if ('addEventListener' in document) {
+  document.addEventListener('DOMContentLoaded', function () {
+    FastClick.attach(document.body)
+  }, false)
+}
+
 import 'intersection-observer';             //=>组件懒加载  兼容低版本的浏览器
 import Vue from 'vue'                       //=>入口文件
 // import Vuex from 'vuex'
@@ -9,10 +17,14 @@ import router from './router'               //=>1.3 导入自己的 loading.js �
 import VueRouter from 'vue-router'          //=>1.1 导入路由的包
 import store from "./store/store";          //=>引入状态管理员对象 store2.js 本地储存
 import ElementUI from 'element-ui'          //=>引入ElementUi   npm i element-ui -S
-import request from "vue-resource/src/http/request";
 import { Search } from 'vant';              //=>引入搜索
 import { PullRefresh} from 'vant';          //=>引入下拉刷新
 import { Header,Swipe, SwipeItem, Button,Navbar,TabItem,TabContainer, TabContainerItem, } from 'mint-ui';   //=>导入Mint-Ui 组件 npm install mint-ui --save
+
+import * as Filters from './util/Filters';
+Object.keys(Filters).forEach(key => {
+  Vue.filter(key,Filters[key]);
+});
 
 import moment, { min } from 'moment'        //=>导入格式时间插件    npm install moment --save
 Vue.filter('dateFormat',function (dataStr,pattern = "YYYY-MM-DD HH:mm:ss") {    //=>定义一个时间的全局过滤器
@@ -38,7 +50,7 @@ Vue.use(Lazyload,{
 import util from './util/debounces';
 Vue.prototype.utils = util;
 
-import Axios from './api/config';
+
 Vue.config.productionTip = false;
 
 Vue.use(Search);        //=>注册全局配置 搜索框
@@ -60,7 +72,6 @@ new Vue({
   router,     //=>1.4 挂载路由对象到 VM 实例上
   VueRouter,  //=>1.2 安装路由
   store,      //=>挂载 store
-  Axios,
   // render: c => c(app),
   components: { App },
   template: '<App/>'

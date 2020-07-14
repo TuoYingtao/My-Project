@@ -37,7 +37,7 @@
                 //测试是否获取到当前点击的类容ID 并将url地址传递过来，方便以后的调用
                 id: this.$route.params.id,
                 name:'匿名用户',
-                neirong:'',   ////发表的评论数据
+                neirong:'',   //发表的评论数据
                 pinglunlist:[],
                 comment:[
                     // {name:'李白',date:Date.now(),neirong:'劝君更进一杯酒'},

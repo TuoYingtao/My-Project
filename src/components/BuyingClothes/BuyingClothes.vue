@@ -1,7 +1,7 @@
 /*
  * @PageName: 购买服装页面
- * @Author: BeautifulGirl230 
- * @Date: 2020-06-21 17:54:10 
+ * @Author: BeautifulGirl230
+ * @Date: 2020-06-21 17:54:10
  * @Last Modified by: BeautifulGirl230
  * @Last Modified time: 2020-06-21 18:07:55
  */
@@ -20,7 +20,8 @@
             :pull-up-load="true"
             @scroll="contentScroll"
             @pullingUp="loadMore">
-      <commodity :data-list="Clothes"/>
+      <commodity ref="dity" :data-list="Clothes"
+                 @itemImageLoad='imageLoad'/>
     </scroll>
   </div>
 </template>
@@ -48,9 +49,9 @@
             this.getClothes();
         },
         methods:{
-            text(){
-                this.$router.go(-1);           //=>返回上一给页面
-            },
+          imageLoad(){
+            this.utils.debounce(this.$refs.scroll.refresh.refresh);
+          },
             onRefresh() {
                 setTimeout(() => {
                     this.isLoading = false;

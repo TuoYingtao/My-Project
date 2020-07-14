@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Header v-model="keywords" @searchTitle="searchTitle"/>
     <van-search class="van-search"
                 v-model="keywords"
                 id="search"
@@ -12,7 +13,7 @@
                       head-height= 0
                       @refresh="onRefresh"
     >
-    <ul class="mui-table-view" v-for="item in search(keywords)" :key="item.id">
+    <ul class="mui-table-view" v-for="item in list" :key="item.id">
 		<router-link :to="'/Detalis/ClothingDetails/' + item.id">
 		  <li class="mui-table-view-cell mui-media">
 			<a href="javascript:;">
@@ -32,8 +33,12 @@
 </template>
 
 <script>
-  import { Toast } from 'mint-ui';
+  import Header from "@/components/commion/content/regionTopBottom/Header";
+  import { getSnake, getSnakeGoods } from "@/api/request"; //=> axios请求
     export default {
+      components:{
+        Header,
+      },
         data() {
             return {
                 isLoading:false,
@@ -42,32 +47,28 @@
             };
         },
         created() {
-            this.getNewsList();
+            getSnake().then((result) => {
+              this.list = result.data.clothing;
+            }).catch((err) => {
+             return Promise.reject(err);
+            });
             this.search();
         },
         methods: {
+          searchTitle(titledata){
+            let searchList = [];
+            searchList = this.list.filter((item) => {
+              if(item.category.includes(titledata)){
+                return item;
+              }
+            });
+            return searchList;
+          },
             onRefresh() {
                 setTimeout(() => {
                     this.isLoading = false;
                     Toast("刷新成功")
                 }, 2000);
-            },
-            getNewsList(){
-                //获取服装资讯列表
-                axios.get('./static/Snake.json',
-                    {
-                        'headers':{
-                            'Content-Type':'Access-Control-Allow-Origin:*,Access-Control-Allow-Method:POST,GET,PUT,DELETE,OPTIONS,Snake/json',
-                        }
-                    }
-                ).then(result => {
-                    if (result.data.status === 0){
-                        //如果没有失败，应该把数据保存在data上
-                        this.list = result.data.clothing;
-                    }else{
-                        Toast('获取服装资讯失败。。。')
-                    }
-                })
             },
             //时尚模糊查询
             search(keywords){

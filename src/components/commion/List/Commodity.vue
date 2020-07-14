@@ -1,23 +1,25 @@
 <template>
   <div class="clothes_table">
-    <div v-for="(item,index) in dataList" :key="index">
+    <div class="waterfall" v-for="(item,index) in dataList" :key="index">
       <router-link :to="'/Detalis/ClothingDetails/' + item.id">
         <div class="clothes_table_div">
-          <img class="clothes_table_img" v-lazy="item.img_url" alt="">
-          <table class="comment-table">
-            <thead>
-              <tr>
-                <th colspan="2"><div class="clothes_table_title">{{ item.price_item }}</div></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="td-price">{{ item.price | dataPrice(2) }}</td>
-                <td class="td-img"><img :src="item.label" alt=""></td>
-              </tr>
-              <tr><td colspan="2"><div class="title">明天价格：{{ item.price2 | dataPrice }}</div></td></tr>
-            </tbody>
-          </table>
+          <div class="items-div">
+            <img class="clothes_table_img" v-lazy="item.img_url" @load="imageLoad">
+            <table class="comment-table">
+              <thead>
+                <tr>
+                  <th colspan="2"><div class="clothes_table_title">{{ item.price_item }}</div></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="td-price">{{ item.price | dataPrice(2) }}</td>
+                  <td class="td-img"><img :src="item.label" alt=""></td>
+                </tr>
+                <tr><td colspan="2"><div class="title">明天价格：{{ item.price2 | dataPrice }}</div></td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </router-link>
     </div>
@@ -38,7 +40,12 @@
         dataPrice(property, count) {
           return "￥" + parseFloat(property).toFixed(count);
         }
-      }
+      },
+      methods:{
+        imageLoad(){
+          this.$emit('itemImageLoad');
+        }
+      },
     }
 </script>
 

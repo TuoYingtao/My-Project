@@ -23,9 +23,20 @@
           }
         }
       },
+      data(){
+        return{
+          isLoad: false,
+        }
+      },
       methods:{
         imageLoad(){
-          console.log(1);
+          /*
+          *设置发送一次事件
+          * */
+          if(!this.isLoad){
+            this.$emit('itemImageLoad');
+            this.isLoad = true;
+          }
         }
       }
     }

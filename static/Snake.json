@@ -1082,85 +1082,131 @@
   "souper": [
     {
       "id": "1",
-      "text": "HSTYLE目标客户为18-35岁的都市时尚人群，是韩风快时尚女装第一品牌，以\"款式多、更新快、性价比高\"的特色获得了都市时尚人群的青睐。",
-      "img": "./static/img/PictureImg/t-1-1.jpg"
+      "price_item": "HSTYLE目标客户为18-35岁的都市时尚人群，是韩风快时尚女装第一品牌，以\"款式多、更新快、性价比高\"的特色获得了都市时尚人群的青睐。",
+      "img_url": "./static/img/PictureImg/t-1-1.jpg",
+      "price": "248",
+      "price2": "268",
+      "label": "./static/img/Clothes/title01.jpg"
     },
     {
       "id": "2",
-      "text": "SONEED紧跟韩风时尚趋势，以独特的设计、精致的做工、优质的面料为职场女性提供更多的时尚选择，让都市白领女性在事业和生活的自由转换中，散发出独特的睿智和迷人的魅力。",
-      "img": "./static/img/PictureImg/t-1-2.jpg"
+      "price_item": "SONEED紧跟韩风时尚趋势，以独特的设计、精致的做工、优质的面料为职场女性提供更多的时尚选择，让都市白领女性在事业和生活的自由转换中，散发出独特的睿智和迷人的魅力。",
+      "img_url": "./static/img/PictureImg/t-1-2.jpg",
+      "price": "243",
+      "price2": "268",
+      "label": "./static/img/Clothes/title01.jpg"
     },
     {
       "id": "3",
-      "text": "AMH品牌名称源于\"I AM HSTYLE\"和\"A Man A Hero\"。AMH源自韩国时尚潮流典范，把握潮流脉搏，释放真实自我，将都市充满自信和活力的男性气质淋漓尽致地展现出来。时尚修身的版型、简约流畅的线条，引领潮男们获得一种更具高端品质的韩风时尚。",
-      "img": "./static/img/PictureImg/t-1-3.gif"
+      "price_item": "AMH品牌名称源于\"I AM HSTYLE\"和\"A Man A Hero\"。AMH源自韩国时尚潮流典范，把握潮流脉搏，释放真实自我，将都市充满自信和活力的男性气质淋漓尽致地展现出来。时尚修身的版型、简约流畅的线条，引领潮男们获得一种更具高端品质的韩风时尚。",
+      "img_url": "./static/img/PictureImg/t-1-3.gif",
+      "price": "145",
+      "price2": "268"
     },
     {
       "id": "4",
-      "text": "SDiscovery Expedition——美国高端户外童装：Discovery Expedition源于Discovery Channel（美国探索频道），2014年签约贝尔·格里尔斯为品牌代言人，2015年特别赞助亚洲首档探索类真人秀《跟着贝尔去冒险》。Discovery Expedition童装依靠自有科技平台，加入时尚户外元素 ，倡导儿童户外精神，探索自然，培养独立能力，专为3-12岁儿童提供全面、专业的高端户外童装。",
-      "img": "./static/img/PictureImg/t-1-4.gif"
+      "price_item": "SDiscovery Expedition——美国高端户外童装：Discovery Expedition源于Discovery Channel（美国探索频道），2014年签约贝尔·格里尔斯为品牌代言人，2015年特别赞助亚洲首档探索类真人秀《跟着贝尔去冒险》。Discovery Expedition童装依靠自有科技平台，加入时尚户外元素 ，倡导儿童户外精神，探索自然，培养独立能力，专为3-12岁儿童提供全面、专业的高端户外童装。",
+      "img_url": "./static/img/PictureImg/t-1-4.gif",
+      "price": "352",
+      "price2": "268",
+      "label": "./static/img/Clothes/title01.jpg"
     },
     {
       "id": "5",
-      "text": "Discovery Expedition——美国高端户外童装：Discovery Expedition源于Discovery Channel（美国探索频道），2014年签约贝尔·格里尔斯为品牌代言人，2015年特别赞助亚洲首档探索类真人秀《跟着贝尔去冒险》。Discovery Expedition童装依靠自有科技平台，加入时尚户外元素 ，倡导儿童户外精神，探索自然，培养独立能力，专为3-12岁儿童提供全面、专业的高端户外童装。",
-      "img": "./static/img/PictureImg/t-1-5.gif"
+      "price_item": "Discovery Expedition——美国高端户外童装：Discovery Expedition源于Discovery Channel（美国探索频道），2014年签约贝尔·格里尔斯为品牌代言人，2015年特别赞助亚洲首档探索类真人秀《跟着贝尔去冒险》。Discovery Expedition童装依靠自有科技平台，加入时尚户外元素 ，倡导儿童户外精神，探索自然，培养独立能力，专为3-12岁儿童提供全面、专业的高端户外童装。",
+      "img_url": "./static/img/PictureImg/t-1-5.gif",
+      "price": "123",
+      "price2": "268"
     },
     {
       "id": "6",
-      "text": "PROSPECS（步乐斯）——韩国专业健走鞋品牌：PROSPECS（步乐斯）--韩国知名的运动品牌，隶属韩国排名前十的贸易公司LSNETWORKS(原属LG集团)。品牌诞生于1981年，是韩国创建较早的运动品牌，一直引领韩国运动的文化趋势，致力于运用科技为步行锻炼者提供最佳步行体验。",
-      "img": "./static/img/PictureImg/t-1-6.gif"
+      "price_item": "PROSPECS（步乐斯）——韩国专业健走鞋品牌：PROSPECS（步乐斯）--韩国知名的运动品牌，隶属韩国排名前十的贸易公司LSNETWORKS(原属LG集团)。品牌诞生于1981年，是韩国创建较早的运动品牌，一直引领韩国运动的文化趋势，致力于运用科技为步行锻炼者提供最佳步行体验。",
+      "img_url": "./static/img/PictureImg/t-1-6.gif",
+      "price": "122",
+      "price2": "268",
+      "label": "./static/img/Clothes/title01.jpg"
     },
     {
       "id": "7",
-      "text": "猫猫包袋——潮流快时尚女包：猫猫包袋——潮韩快时尚女包品牌：潮流、街头、快时尚，这是猫猫包袋的定位。每一个包包都有灵魂，用心缝好每一针每一线，才能把美和时尚传达给女性。做时尚而又最实惠的包包。猫猫迅速抓取世界前沿的流行元素，用猫猫包袋的包包，永远不用担心落伍。",
-      "img": "./static/img/PictureImg/t-1-7.jpg"
+      "price_item": "猫猫包袋——潮流快时尚女包：猫猫包袋——潮韩快时尚女包品牌：潮流、街头、快时尚，这是猫猫包袋的定位。每一个包包都有灵魂，用心缝好每一针每一线，才能把美和时尚传达给女性。做时尚而又最实惠的包包。猫猫迅速抓取世界前沿的流行元素，用猫猫包袋的包包，永远不用担心落伍。",
+      "img_url": "./static/img/PictureImg/t-1-7.jpg",
+      "price": "221",
+      "price2": "268",
+      "label": "./static/img/Clothes/title01.jpg"
     },
     {
       "id": "8",
-      "text": "白鹿语——世界风设计师女装：为24-45岁优雅帅气的独立女性，以衣发声。服装融合了东方与西方的神韵廓形，加上一些发展中国家和部落地区的民族民俗风情等一些接近灵魂的元素。",
-      "img": "./static/img/PictureImg/t-1-8.gif"
+      "price_item": "白鹿语——世界风设计师女装：为24-45岁优雅帅气的独立女性，以衣发声。服装融合了东方与西方的神韵廓形，加上一些发展中国家和部落地区的民族民俗风情等一些接近灵魂的元素。",
+      "img_url": "./static/img/PictureImg/t-1-8.gif",
+      "price": "321",
+      "price2": "268",
+      "label": "./static/img/Clothes/title01.jpg"
     }
   ],
   "souper2": [
     {
       "id": "1",
-      "text": "HSTYLE目标客户为18-35岁的都市时尚人群，是韩风快时尚女装第一品牌，以\"款式多、更新快、性价比高\"的特色获得了都市时尚人群的青睐。",
-      "img": "./static/img/PictureImg/t-2-1.jpg"
+      "price_item": "HSTYLE目标客户为18-35岁的都市时尚人群，是韩风快时尚女装第一品牌，以\"款式多、更新快、性价比高\"的特色获得了都市时尚人群的青睐。",
+      "img_url": "./static/img/PictureImg/t-2-1.jpg",
+      "price": "251",
+      "price2": "268",
+      "label": "./static/img/Clothes/title01.jpg"
     },
     {
       "id": "2",
-      "text": "SONEED紧跟韩风时尚趋势，以独特的设计、精致的做工、优质的面料为职场女性提供更多的时尚选择，让都市白领女性在事业和生活的自由转换中，散发出独特的睿智和迷人的魅力。",
-      "img": "./static/img/PictureImg/t-2-2.jpg"
+      "price_item": "SONEED紧跟韩风时尚趋势，以独特的设计、精致的做工、优质的面料为职场女性提供更多的时尚选择，让都市白领女性在事业和生活的自由转换中，散发出独特的睿智和迷人的魅力。",
+      "img_url": "./static/img/PictureImg/t-2-2.jpg",
+      "price": "352",
+      "price2": "268",
+      "label": "./static/img/Clothes/title01.jpg"
     },
     {
       "id": "3",
-      "text": "AMH品牌名称源于\"I AM HSTYLE\"和\"A Man A Hero\"。AMH源自韩国时尚潮流典范，把握潮流脉搏，释放真实自我，将都市充满自信和活力的男性气质淋漓尽致地展现出来。时尚修身的版型、简约流畅的线条，引领潮男们获得一种更具高端品质的韩风时尚。",
-      "img": "./static/img/PictureImg/t-2-3.jpg"
+      "price_item": "AMH品牌名称源于\"I AM HSTYLE\"和\"A Man A Hero\"。AMH源自韩国时尚潮流典范，把握潮流脉搏，释放真实自我，将都市充满自信和活力的男性气质淋漓尽致地展现出来。时尚修身的版型、简约流畅的线条，引领潮男们获得一种更具高端品质的韩风时尚。",
+      "img_url": "./static/img/PictureImg/t-2-3.jpg",
+      "price": "142",
+      "price2": "268",
+      "label": "./static/img/Clothes/title01.jpg"
     },
     {
       "id": "4",
-      "text": "SDiscovery Expedition——美国高端户外童装：Discovery Expedition源于Discovery Channel（美国探索频道），2014年签约贝尔·格里尔斯为品牌代言人，2015年特别赞助亚洲首档探索类真人秀《跟着贝尔去冒险》。Discovery Expedition童装依靠自有科技平台，加入时尚户外元素 ，倡导儿童户外精神，探索自然，培养独立能力，专为3-12岁儿童提供全面、专业的高端户外童装。",
-      "img": "./static/img/PictureImg/t-2-4.jpg"
+      "price_item": "SDiscovery Expedition——美国高端户外童装：Discovery Expedition源于Discovery Channel（美国探索频道），2014年签约贝尔·格里尔斯为品牌代言人，2015年特别赞助亚洲首档探索类真人秀《跟着贝尔去冒险》。Discovery Expedition童装依靠自有科技平台，加入时尚户外元素 ，倡导儿童户外精神，探索自然，培养独立能力，专为3-12岁儿童提供全面、专业的高端户外童装。",
+      "img_url": "./static/img/PictureImg/t-2-4.jpg",
+      "price": "134",
+      "price2": "268",
+      "label": "./static/img/Clothes/title01.jpg"
     },
     {
       "id": "5",
-      "text": "Discovery Expedition——美国高端户外童装：Discovery Expedition源于Discovery Channel（美国探索频道），2014年签约贝尔·格里尔斯为品牌代言人，2015年特别赞助亚洲首档探索类真人秀《跟着贝尔去冒险》。Discovery Expedition童装依靠自有科技平台，加入时尚户外元素 ，倡导儿童户外精神，探索自然，培养独立能力，专为3-12岁儿童提供全面、专业的高端户外童装。",
-      "img": "./static/img/PictureImg/t-2-5.jpg"
+      "price_item": "Discovery Expedition——美国高端户外童装：Discovery Expedition源于Discovery Channel（美国探索频道），2014年签约贝尔·格里尔斯为品牌代言人，2015年特别赞助亚洲首档探索类真人秀《跟着贝尔去冒险》。Discovery Expedition童装依靠自有科技平台，加入时尚户外元素 ，倡导儿童户外精神，探索自然，培养独立能力，专为3-12岁儿童提供全面、专业的高端户外童装。",
+      "img_url": "./static/img/PictureImg/t-2-5.jpg",
+      "price": "134",
+      "price2": "268",
+      "label": "./static/img/Clothes/title01.jpg"
     },
     {
       "id": "6",
-      "text": "PROSPECS（步乐斯）——韩国专业健走鞋品牌：PROSPECS（步乐斯）--韩国知名的运动品牌，隶属韩国排名前十的贸易公司LSNETWORKS(原属LG集团)。品牌诞生于1981年，是韩国创建较早的运动品牌，一直引领韩国运动的文化趋势，致力于运用科技为步行锻炼者提供最佳步行体验。",
-      "img": "./static/img/PictureImg/t-2-6.jpg"
+      "price_item": "PROSPECS（步乐斯）——韩国专业健走鞋品牌：PROSPECS（步乐斯）--韩国知名的运动品牌，隶属韩国排名前十的贸易公司LSNETWORKS(原属LG集团)。品牌诞生于1981年，是韩国创建较早的运动品牌，一直引领韩国运动的文化趋势，致力于运用科技为步行锻炼者提供最佳步行体验。",
+      "img_url": "./static/img/PictureImg/t-2-6.jpg",
+      "price": "226",
+      "price2": "268",
+      "label": "./static/img/Clothes/title01.jpg"
     },
     {
       "id": "7",
-      "text": "猫猫包袋——潮流快时尚女包：猫猫包袋——潮韩快时尚女包品牌：潮流、街头、快时尚，这是猫猫包袋的定位。每一个包包都有灵魂，用心缝好每一针每一线，才能把美和时尚传达给女性。做时尚而又最实惠的包包。猫猫迅速抓取世界前沿的流行元素，用猫猫包袋的包包，永远不用担心落伍。",
-      "img": "./static/img/PictureImg/t-2-7.jpg"
+      "price_item": "猫猫包袋——潮流快时尚女包：猫猫包袋——潮韩快时尚女包品牌：潮流、街头、快时尚，这是猫猫包袋的定位。每一个包包都有灵魂，用心缝好每一针每一线，才能把美和时尚传达给女性。做时尚而又最实惠的包包。猫猫迅速抓取世界前沿的流行元素，用猫猫包袋的包包，永远不用担心落伍。",
+      "img_url": "./static/img/PictureImg/t-2-7.jpg",
+      "price": "314",
+      "price2": "268",
+      "label": "./static/img/Clothes/title01.jpg"
     },
     {
       "id": "8",
-      "text": "白鹿语——世界风设计师女装：为24-45岁优雅帅气的独立女性，以衣发声。服装融合了东方与西方的神韵廓形，加上一些发展中国家和部落地区的民族民俗风情等一些接近灵魂的元素。",
-      "img": "./static/img/PictureImg/t-2-8.jpg"
+      "price_item": "白鹿语——世界风设计师女装：为24-45岁优雅帅气的独立女性，以衣发声。服装融合了东方与西方的神韵廓形，加上一些发展中国家和部落地区的民族民俗风情等一些接近灵魂的元素。",
+      "img_url": "./static/img/PictureImg/t-2-8.jpg",
+      "price": "234",
+      "price2": "268",
+      "label": "./static/img/Clothes/title01.jpg"
     }
   ]
 }

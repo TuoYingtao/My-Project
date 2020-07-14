@@ -13,28 +13,26 @@
 ### Build Setup
 ``` bash
 # install dependencies
-安装依赖
 npm install
 
 # serve with hot reload at localhost:8080
-启动项目
 npm run dev
 
 # build for production with minification
-对项目进行打包
 npm run build
 
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-### 移动端自适应
-* 第一种方法使用px转换rem插件
-``` bash
-1.首先引入 postcss-pxtorem
-npm install postcss-pxtorem --save
 
-2.在js里新建一个rem.js文件
-代码如下：
+## 移动端自适应
+### 第一种方法使用px转换rem插件
+> 首先引入 postcss-pxtorem
+``` bash
+npm install postcss-pxtorem --save
+```
+> 在js里新建一个rem.js文件
+``` js
     const baseSize = 32
     // 设置 rem 函数
     function setRem () {
@@ -49,24 +47,30 @@ npm install postcss-pxtorem --save
     window.onresize = function () {
       setRem()
     }
-
-3.在main.js里引入全局
-    rem.js的路径：
-    import './lib/mui/js/rem'
-
-4.在修改.postcssrc.js文件
-    在.postcssrc.js文件内的 plugins 添加以下配置，配后就可以在开发中直接使用 px 单位开发了
-     "postcss-pxtorem": {
-          "rootValue": 32,
-          "propList": ["*"]
-        }
 ```
-* 第二是使用less-loader
-```` bash
-1.首先在项目里安装less和less-loader
-    npm install less less-loader
+ > 在main.js里引入全局rem.js的路径：
+``` js
+import './lib/mui/js/rem'
+```
+> 在修改.postcssrc.js文件,在.postcssrc.js文件内的 plugins 添加以下配置，配后就可以在开发中直接使用 px 单位开发了
+``` js
+"postcss-pxtorem": {
+  "rootValue": 32,
+    "propList": ["*"]
+}
+```
 
-2.打开webpack.base.conf.js，在 module.exports= 的对象的 module.rules 后面添加一段：
+## 安装`less-loader`
+``` bash
+# npm install less less-loader --save-dev
+```
+> 由于安装less-loader的版本过高，启动项目的时候会报错，可以安装较低一点的版本
+``` bash
+# Module build failed: TypeError: loaderContext.getResolve is not a function
+# npm install less-loader@4.1.0 --save-dev
+```
+> 打开webpack.base.conf.js，在 module.exports= 对象的 module.rules 后面添加一段：
+``` js
     module.exports = {
         //  此处省略已有的的其他的内容
         module: {
@@ -79,8 +83,9 @@ npm install postcss-pxtorem --save
             ]
         }
     }
-
-3.在代码中的 style 标签中 加上 lang=“less” 属性即可
+```
+> 在代码中的 style 标签中 加上 lang=“less” 属性即可
+``` css
     <style scoped lang="less">
        .div1 {
             width: 200px;
@@ -91,9 +96,9 @@ npm install postcss-pxtorem --save
             }
         }
     </style>
-
-4.配置好less,就可以使用rem
-    4.1在js里新建一个loader.js,之后，在写css时，只要将px单位替换成rem，这里设置的比例是100px=1rem,例如，宽度为100px时，可以直接写成1rem。也可以写在index.html的script里。
+```
+ > 配置好less就可以使用rem,在js里新建一个loader.js,之后，在写css时，只要将px单位替换成rem，这里设置的比例是100px=1rem,例如，宽度为100px时，可以直接写成1rem。也可以写在index.html的script里。
+ ```js
     fnResize()
     window.onresize = function () {
     fnResize()
@@ -110,7 +115,7 @@ npm install postcss-pxtorem --save
     }
 ````
 
-## 3.页面切换显示加载loading   (需要引入vux第三方库)
+## 页面切换显示加载loading   (需要引入vux第三方库)
 #### 第一步安装vux依赖：
 ````
 npm install vux --save

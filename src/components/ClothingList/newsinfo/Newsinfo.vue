@@ -3,12 +3,12 @@
 <!--    <mt-header fixed title="服装详情">-->
 <!--        <mt-button icon="back" @click="text" slot="left">返回</mt-button>-->
 <!--    </mt-header>-->
-    <div class="newsinfo-container" v-for="item in info" :key="item.id">
+    <div class="newsinfo-container" v-for="item in newsinfo" :key="item.id">
 <!--    大标题  -->
       <h3 class="title" >{{ item.title }}</h3>
 <!--    子标题  -->
       <p class="subtitle">
-        <span>发表时间：{{ item.date | dateFormat }}</span>
+        <span>发表时间：{{ item.date | dateFormatter('YYYY-MM-DD HH:mm:ss') }}</span>
         <span>类型：{{ item.category }}次</span>
       </p>
       <hr>
@@ -49,11 +49,13 @@ import comment_text from "./subcomponents/comment-text";
                 axios.get(JSONLIST).then(result => {
                     if (result.data.status === 0){
                         //如果没有失败，应该把数据保存在data上
-                        this.newsinfo = result.data.clothing;
-                        // 过滤不等于当前点击的id的数据
-                        this.info = this.newsinfo.filter((item) => {
-                            return this.id === item.id
+                        this.newsinfo = result.data.clothing.filter((item) => {
+                          return this.id === item.id
                         })
+                        // 过滤不等于当前点击的id的数据
+                        // this.info = this.newsinfo.filter((item) => {
+                        //     return this.id === item.id
+                        // })
                     }else{
                         Toast('获取服装资讯失败。。。')
                     }

@@ -1,12 +1,11 @@
-import qs from 'qs'     //npm install qs
 import Axios from 'axios'
 import store from "../store/store";
 import router from "../router";   //引入axios  npm install axios --save
-import {Toast} from 'mint-ui'
 
 // Axios.defaults.baseURL = '/api';  // 改成/api才能用proxyTable跨域
 // Axios.defaults.timeout = 10000;  //设置请求超时时间
 // Axios.defaults.withCredentials = true;    //设置跨域请求是否允许携带Cookie
+
 //=>设置POST之下请求主体数据格式处理
 Axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 global.axios = Axios;  //设置一个全局axios便于调用
@@ -19,7 +18,6 @@ global.axios = Axios;  //设置一个全局axios便于调用
 //       next()
 //     } else {
 //       next({path: '/login'});
-//       Toast({ message: '检测到您还未登录,请登录后操作！' + '请您输入账号:Snake,密码:123456', duration: 5500 });
 //     }
 //   } else {
 //     next()
@@ -36,7 +34,6 @@ Axios.interceptors.request.use(function (config) {
 }, function (error) {
   // 对请求错误做些什么
   router.push("/login");
-  Toast({ message: '检测到您还未登录,请登录后操作！' + '请输入:账号:Snake,密码:123456', duration: 5500 });
   return Promise.reject(error);
 });
 // 添加响应拦截器

@@ -1,14 +1,35 @@
-import axios from './axios'
-const service = axios.create({
-  baseURL: process.env.API_HOST,
-  withCredentials : true,   //设置跨域请求是否允许携带Cookie
-  timeout: 20000,
-  headers: {
-    'Content-Type' : 'application/x-www-form-urlencoded;charset=UTF-8'
-  }
-});
+import axios from './axios';
 
-export default ({
-  service,
-  axios,
-})
+export function request(config){
+  const service = axios.create({
+    baseURL: './static',
+    method: 'get',
+    withCredentials : true,   //设置跨域请求是否允许携带Cookie
+    timeout: 5000,            //设置请求超时时间
+    headers: {
+      post:{
+        'Content-Type' : 'application/x-www-form-urlencoded;charset=UTF-8'
+      }
+    }
+  });
+
+  // 添加请求拦截器
+  service.interceptors.request.use(function (config) {
+    // 在发送请求之前做些什么
+    return config;
+  }, function (error) {
+    // 对请求错误做些什么
+    return Promise.reject(error);
+  });
+
+  // 添加响应拦截器
+  service.interceptors.response.use(function (response) {
+    // 对响应数据做点什么
+    return response;
+  }, error => {
+    // 对响应错误做点什么
+    return Promise.reject(error);
+  });
+
+  return service(config);
+}

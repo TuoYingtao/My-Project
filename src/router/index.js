@@ -59,7 +59,12 @@ let router = new Router({
       meta:{
         title:'服装列页面',
         type:'token'
-      }
+      },
+      children:[{
+        path: '/home/newsinfo?:id',
+        name: '服装列页面详情',
+        component: r => require.ensure([],() => r(require('@/components/ClothingList/newsinfo/Newsinfo')),'demo'),
+      }]
     },{
       //=>配置服装资讯默认路径
       path:'/home/newsinfo/:id',
@@ -99,6 +104,19 @@ let router = new Router({
   ],
   linkActiveClass:'muiMin-active'  //覆盖默认的路由高亮类，默认的类叫做 router-link-active
 });
+
+// 全局路由构造函数，判断是否登录和要跳转到页面
+// router.beforeEach((to, from, next) => {
+//   if (to.matched.some(res => res.meta.title)) {    // 需要登录
+//     if(window.localStorage.token){
+//       next()
+//     } else {
+//       next({path: '/login'});
+//     }
+//   } else {
+//     next()
+//   }
+// });
 
 //把路由对象暴露出去
 export default router

@@ -1,261 +1,292 @@
 <template>
-<!-- 在Vue中，模板中必须有一个根元素将内容全部包裹起来 -->
+  <!-- 在Vue中，模板中必须有一个根元素将内容全部包裹起来 -->
   <div id="HomeContainer">
+    <Header/>
     <!--   火箭：回到顶部   -->
-    <top-rocket @click.native="backtopClick" v-show="isShowBackTop"/>
-<!--  better-scroll滚动监听  -->
-    <scroll class="content"
-                   ref="scroll"
-                  :probe-type="3"
-                  :pull-up-load="true"
-                  @scroll="contentScroll"
-                  @pullingUp="loadMore">
+    <top-rocket @click.native="backtopClick" v-show="isShowBackTop" />
+    <!-- 顶部导航栏 -->
+    <tab-control
+      ref="tabControl01"
+      class="tabControl"
+      @itemClick="tabClick"
+      :titles="tabClickData"
+      v-show="isTabFixed"
+    />
+    <!--  better-scroll滚动监听  -->
+    <scroll
+      class="content"
+      ref="scroll"
+      :probe-type="3"
+      :pull-up-load="true"
+      @scroll="contentScroll"
+      @pullingUp="loadMore"
+    >
       <div></div>
-  <!-- 轮播图区域  -->
-      <chart ref="chart" class="chart" :chart-data="lunbotuList"/>
-  <!--  六宫格 -->
+      <!-- 轮播图区域  -->
+      <chart ref="chart" class="chart" :chart-data="lunbotuList" @itemImageLoad="imageLoad" />
+      <!--  六宫格 -->
       <div class="mui-grid-view">
         <div class="mui-table-view-cell">
           <router-link to="/home/newslist">
-            <img src="../../../static/img/menu6.png" alt="">
+            <img src="../../../static/img/menu6.png" alt />
             <div class="mui-media-body">服装资讯</div>
           </router-link>
         </div>
         <div class="mui-table-view-cell">
           <router-link to="/picture/picturesharing">
-            <img src="../../../static/img/menu5.png" alt="">
+            <img src="../../../static/img/menu5.png" alt />
             <div class="mui-media-body">热门服装</div>
           </router-link>
         </div>
         <div class="mui-table-view-cell">
           <router-link to="/purchase/clothing">
-            <img src="../../../static/img/menu3.png" alt="">
+            <img src="../../../static/img/menu3.png" alt />
             <div class="mui-media-body">购买服装</div>
           </router-link>
         </div>
       </div>
 
-      <recommend :recommend-title="title1"/>
-      <recommend :recommend-title="title2"/>
-      <recommend/>
-        <ul>
-          <li>低1个</li>
-          <li>低2个</li>
-          <li>低3个</li>
-          <li>低4个</li>
-          <li>低5个</li>
-          <li>低6个</li>
-          <li>低7个</li>
-          <li>低8个</li>
-          <li>低9个</li>
-          <li>低10个</li>
-          <li>低11个</li>
-          <li>低12个</li>
-          <li>低13个</li>
-          <li>低14个</li>
-          <li>低15个</li>
-          <li>低16个</li>
-          <li>低17个</li>
-          <li>低18个</li>
-          <li>低19个</li>
-          <li>低20个</li>
-          <li>低21个</li>
-          <li>低22个</li>
-          <li>低23个</li>
-          <li>低24个</li>
-          <li>低25个</li>
-          <li>低26个</li>
-          <li>低27个</li>
-          <li>低28个</li>
-          <li>低29个</li>
-          <li>低30个</li>
-          <li>低31个</li>
-          <li>低32个</li>
-          <li>低33个</li>
-          <li>低34个</li>
-          <li>低35个</li>
-          <li>低36个</li>
-          <li>低37个</li>
-          <li>低38个</li>
-          <li>低39个</li>
-          <li>低40个</li>
-          <li>低41个</li>
-          <li>低42个</li>
-          <li>低43个</li>
-          <li>低44个</li>
-          <li>低45个</li>
-          <li>低46个</li>
-          <li>低47个</li>
-          <li>低48个</li>
-          <li>低49个</li>
-          <li>低50个</li>
-          <li>低51个</li>
-          <li>低52个</li>
-          <li>低53个</li>
-          <li>低54个</li>
-          <li>低55个</li>
-          <li>低56个</li>
-          <li>低57个</li>
-          <li>低58个</li>
-          <li>低59个</li>
-          <li>低60个</li>
-          <li>低61个</li>
-          <li>低62个</li>
-          <li>低63个</li>
-          <li>低64个</li>
-          <li>低65个</li>
-          <li>低66个</li>
-          <li>低67个</li>
-          <li>低68个</li>
-          <li>低69个</li>
-          <li>低70个</li>
-          <li>低71个</li>
-          <li>低72个</li>
-          <li>低73个</li>
-          <li>低74个</li>
-          <li>低75个</li>
-          <li>低76个</li>
-          <li>低77个</li>
-          <li>低78个</li>
-          <li>低79个</li>
-          <li>低80个</li>
-          <li>低81个</li>
-          <li>低82个</li>
-          <li>低83个</li>
-          <li>低84个</li>
-          <li>低85个</li>
-          <li>低86个</li>
-          <li>低87个</li>
-          <li>低88个</li>
-          <li>低89个</li>
-          <li>低90个</li>
-          <li>低91个</li>
-          <li>低92个</li>
-          <li>低93个</li>
-          <li>低94个</li>
-          <li>低95个</li>
-          <li>低96个</li>
-          <li>低97个</li>
-          <li>低98个</li>
-          <li>低99个</li>
-          <li>低100个</li>
-        </ul>
+      <recommend class="recommend" :recommend-title="title1" />
 
+      <!-- 服装数据导航栏 -->
+      <tab-control
+        ref="tabControl02"
+        class="tabControl"
+        @itemClick="tabClick"
+        :titles="tabClickData"
+      />
+      <!-- 服装数据 -->
+      <commodity :data-list="showGoods" @itemImageLoad="commodity" />
     </scroll>
   </div>
 </template>
 
 <script>
+import Header from "@/components/commion/content/regionTopBottom/Header";
+import { getSnake, getSnakeGoods } from "@/api/request"; //=> axios请求
+import Scroll from "@/components/commion/scroll/Scroll"; //=> 引入BetterScroll组件
+import TopRocket from "@/components/commion/BackTool/TopRocket"; //=> 引入回到顶部组件
+import Recommend from "../commion/Label/Recommend"; //=> 资讯标签栏
+import Chart from "../commion/Rotation/Chart"; //=> 轮播图
+import TabControl from "@/components/commion/content/tabControl/TabControl";
+import Commodity from "../commion/List/Commodity"; //=> 服装列表
+export default {
+  components: {
+    Scroll, //=> 注册BetterScroll组件
+    TopRocket, //=> 注册回到顶部组件
+    Recommend, //=> 资讯标签栏
+    Chart, //=> 轮播图
+    Commodity, //=> 服装列表
+    TabControl,
+    Header,
+  },
+  data() {
+    return {
+      isanimated: true,
+      tabClickData: ["流行", "新款", "精选"],
+      title1: "最新资讯",
+      lunbotuList: [],
+      isShowBackTop: false, //=> 回到顶部默认为隐藏
+      isTabFixed: false, //=> 顶部导航栏默认隐藏
+      taboffsetTop: 0,
+      goods: {
+        clothing: { page: 0, list: ["1"] },
+        souper: { page: 0, list: ["2"] },
+        souper2: { page: 0, list: ["3"] }
+      },
+      currentType: "clothing",
+      scrollY: 0,
+    };
+  },
 
-  import Scroll from "../commion/scroll/Scroll";      //=> 引入BetterScroll组件
-  import TopRocket from "../commion/BackTool/TopRocket";  //=> 引入回到顶部组件
-  import Recommend from "../commion/Label/Recommend";     //=> 资讯标签栏
-  import Chart from "../commion/Rotation/Chart";          //=> 轮播图
-  import  { Toast } from 'mint-ui';
-  import axios from 'axios';
-  import qs from 'qs';
-  export default {
-    components:{
-      Scroll,      //=> 注册BetterScroll组件
-      TopRocket,   //=> 注册回到顶部组件
-      Recommend,   //=> 资讯标签栏
-      Chart,       //=> 轮播图
-    },
-       data(){
-           return{
-             title1: "最新资讯",
-             title2: "火爆拍卖",
-             lunbotuList:[],
-             isShowBackTop: false,      //=>回到顶部默认为隐藏
-           };
-       },
-        created(){
-          this.getLunbotu();
-        },
-        methods:{
-           getLunbotu(){
-               axios.get('./static/Snake.json').then(result => {
-                   if (result.data.status === 0){
-                       //获取成功
-                       this.lunbotuList = result.data.message;
-                     // Toast('获取轮播图成功.....')
-                   }else{
-                       //获取失败
-                       Toast('获取轮播图失败.....');
-                   }
-               });
-           },
-          //=> 上拉加载更多
-          loadMore(){
-            console.log('------');
-            // this.$refs.scroll.finishPullUp()
-            // this.$refs.scroll.refresh()
-          },
-          //=> 火箭滚动显示
-          contentScroll(position){
-            /*
-            * 火箭滚动显示
-            * position.y是scroll中实时监听的y坐标；（为负值）
-            * 当y滚动到500的时候，就将this.backtop为true
-            * */
-             this.isShowBackTop = (-position.y) > 500
-          },
-          /*
-          * x轴,y轴,时间
-          * x:0,y:60,itme:600
-          * y轴设置60使它在回到顶部的时候有回弹效果
-          *  */
-          backtopClick(){
-             this.$refs.scroll.scrollTo(0,60,600)
-          }
-        },
+  computed: {
+    showGoods() {
+      return this.goods[this.currentType].list;
     }
+  },
+
+  beforeCreate() {
+    console.log("HomeContainer beforeCreate");
+  },
+
+  created() {
+    //=> 请求轮播图数据
+    getSnake()
+      .then(result => {
+        this.lunbotuList = result.data.message;
+      })
+      .catch(err => {
+        return Promise.reject(err);
+      });
+
+    //=> 请求多个数据
+    this.getSnakeGoods("clothing");
+    this.getSnakeGoods("souper");
+    this.getSnakeGoods("souper2");
+  },
+
+  methods: {
+    tabClick(index) {
+      switch (index) {
+        case 0:
+          this.currentType = "clothing";
+          break;
+        case 1:
+          this.currentType = "souper";
+          break;
+        case 2:
+          this.currentType = "souper2";
+          break;
+      }
+      this.$refs.tabControl01.currentIndex = this.$refs.tabControl02.currentIndex = index;
+    },
+
+    getSnakeGoods(type) {
+      getSnakeGoods()
+        .then(result => {
+          this.goods[type].list = result.data[type];
+        })
+        .catch(err => {
+          return Promise.reject(err);
+        });
+    },
+
+    commodity() {
+      this.utils.debounce(this.$refs.scroll.refresh.refresh);
+    },
+
+    imageLoad() {
+      /*
+       * 获取 tabControl 的 tabOffsetTop
+       * 所有组件都有一个 $el 用于获取组件中的元素
+       * */
+      this.taboffsetTop = this.$refs.tabControl02.$el.offsetTop;
+    },
+
+    //=> 上拉加载更多
+    loadMore() {
+      console.log("------");
+      this.$refs.scroll.finishPullUp();
+    },
+
+    //=> 火箭滚动显示
+    contentScroll(position) {
+      /*
+       * 火箭滚动显示
+       * position.y是scroll中实时监听的y坐标；（为负值）
+       * 当y滚动到500的时候，就将this.backtop为true
+       * */
+      this.isShowBackTop = (-position.y) > 500;
+
+      /*
+       * 判断tabControl是否吸顶
+       */
+      this.isTabFixed = (-position.y) > this.taboffsetTop;
+
+
+    },
+
+    /*
+     * x轴,y轴,时间
+     * x:0,y:60,itme:600
+     * y轴设置60使它在回到顶部的时候有回弹效果
+     *  */
+    backtopClick() {
+      this.$refs.scroll.scrollTo(0, 60, 600);
+    }
+  },
+
+  //=> 打印销毁
+  destroyed() {
+    console.log("HomeContatiner destroyed");
+  },
+
+  /*
+  * 组件被激活时 回到之前离开的位置
+  * */ 
+  activated(){
+    console.log('activatd');
+      this.$refs.scroll.scrollTo(0,this.scrollY,50);
+      this.$refs.scroll.refresh();
+  },
+
+  /*
+  * 记录当前离开的位置
+  * */ 
+  deactivated(){
+    console.log('deactivatd');
+    this.scrollY =  this.$refs.scroll.getScrollY();
+    console.log("当前位置：" + this.scrollY);
+  }
+
+};
 </script>
 
 <style lang="scss" scoped>
-  #HomeContainer{
-    background-color: rgba(250, 187, 187, 0.6);
-    // rgba(128,32,32,0.6)
-    height: 100vh;
-    position: relative;
-    .content{
-      overflow: hidden;
-      position: absolute;
-      top: 40px;
-      bottom: 50px;
-      left: 0;
-      right: 0;
-    }
-    //=> 回到顶部火箭样式
-    .back-top{
-      z-index:9;
-    }
-    //=> 给子组件轮播图设置样式 或是/deep/
-    .chart{
-        overflow: hidden;
-    }
-    .chart >>> img{
-      padding: 10px;
-      border-radius: 19px;
-    }
-    //=> 六宫格样式
-      .mui-grid-view{
-        display: flex;
-        justify-content: space-around;
-        margin: 0 10px 0 10px ;
-        border-radius: 0 0 10px 10px;
-        background-color: #ffffff;
-        .mui-table-view-cell{
-          border: none;
-          text-align: center;
-          img{
-            width: 50px;
-            height: 50px;
-          }
-          .mui-media-body{
-            font-size: 12px;
-          }
-        }
+#HomeContainer {
+  background-color: rgba(250, 187, 187, 0.6);
+  height: 100vh;
+  position: relative;
+  .content {
+    overflow: hidden;
+    position: absolute;
+    top: 40px;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+  }
+  //=> 回到顶部火箭样式
+  .back-top {
+    z-index: 9;
+  }
+  //=> 给子组件轮播图设置样式 或是/deep/
+  .chart {
+    overflow: hidden;
+  }
+  .chart >>> img {
+    padding: 10px;
+    border-radius: 19px;
+  }
+  .recommend {
+    margin-bottom: 10px;
+  }
+  .commodity >>> .waterfall {
+    column-count: 2;
+    column-gap: 1;
+  }
+  .commodity >>> .clothes_table_div {
+    box-sizing: border-box;
+    break-inside: avoid;
+    padding: 10px;
+  }
+  .commodity >>> .items-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  //=> 六宫格样式
+  .mui-grid-view {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 10px 0 10px;
+    border-radius: 0 0 10px 10px;
+    background-color: #ffffff;
+    .mui-table-view-cell {
+      border: none;
+      text-align: center;
+      img {
+        width: 50px;
+        height: 50px;
       }
+      .mui-media-body {
+        font-size: 12px;
+      }
+    }
+  }
+  .tabControl {
+    // margin-top: 40px;
+    position: relative;
+    z-index: 9;
+  }
 }
 </style>

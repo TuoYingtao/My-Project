@@ -2,13 +2,17 @@
   <div id="app">
     <div class="app-container">
       <!--  顶部Header 区域    -->
-      <mt-header class="mint-header" fixed :title="title" v-model="home">
+      <!-- <mt-header class="mint-header" fixed :title="title" v-model="home">
         <mt-button icon="back" @click="routers" slot="left" v-show="this.folact">返回</mt-button>
-      </mt-header>
+      </mt-header> -->
       <!--  中间 router-view 区域    -->
+      
       <transition v-if="isRouterAlive">
+        <keep-alive>
         <router-view class="views"/>
+        </keep-alive>
       </transition>
+      
       <!--  底部 Tabbar 区域  -->
       <nav class="mui-bar mui-bar-tab">
         <router-link class="mui-tab-item" to="/home">
