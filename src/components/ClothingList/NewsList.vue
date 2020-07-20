@@ -1,6 +1,7 @@
 <template>
 <div id="newsList">
   <loading v-model="isLoading" />
+  <Header/>
   <scroll class="content"
           ref="scrollDom"
           :probe-type="3"
@@ -16,13 +17,16 @@
 </template>
 
 <script>
+  import Header from "@/components/commion/content/regionTopBottom/Header";
   import Scroll from '../commion/scroll/Scroll'
   import CommoNews from '../commion/List/CommoNews'
   import { Loading } from 'vux'
   import { mapState } from 'vuex'
   import { Toast } from  "mint-ui";
+  import { getSnake, getSnakeGoods } from "@/api/request"; //=> axios请求
     export default {
       components:{
+        Header,
         Loading,     //=> 加载
         Scroll,      //=> 注册BetterScroll组件
         CommoNews,   //=> 注册服装详情列表
@@ -77,7 +81,7 @@
             },
             getNewsList(){
                 //获取服装资讯列表
-                axios.get('./static/Snake.json').then(result => {
+                getSnake().then(result => {
                     if (result.data.status === 0){
                         //如果没有失败，应该把数据保存在data上
                         this.newsLists = result.data.clothing;                  

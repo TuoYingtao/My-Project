@@ -1,5 +1,8 @@
 <template>
   <div>
+    <mt-header class="mt-header" style="z-index: 2" fixed title="购物车">
+      <mt-button icon="back" @click="goClick" slot="left">返回</mt-button>
+    </mt-header>
     <div class="div">
       <div class="background">
         <div class="shoppingche" v-for="(item,number) in list" :key="item.id">
@@ -66,6 +69,9 @@
         },
         methods: {
             ...mapMutations(["updateGoodsCount","changeSelectState"]),
+            goClick(){
+              this.$router.go(-1);
+            },
             showPopup(){
                 if (this.list.length !== 0)
                     return this.$message({showClose:true,message: '购买成功！请耐心等待您的包裹吧！', type: 'success', duration: 3000});
@@ -129,6 +135,9 @@
 </script>
 
 <style lang="scss" scoped>
+.mt-header{
+  background-color: rgba(112, 33, 33, 0.349);
+}
   .div{
     width: 100%;
     height: 100%;

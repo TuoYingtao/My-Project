@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Header class="header"/>
 <!--    <mt-header fixed title="服装详情">-->
 <!--        <mt-button icon="back" @click="text" slot="left">返回</mt-button>-->
 <!--    </mt-header>-->
@@ -23,12 +24,19 @@
 
 <script>
 import { Toast } from 'mint-ui'
+import { getSnake, getSnakeGoods } from "@/api/request"; //=> axios请求
+import Header from "@/components/commion/content/regionTopBottom/Header";
 import NewsList from "../NewsList";
 // 1.导入评论组件
 import comment from "./subcomponents/comment";
 //2.导入类容
 import comment_text from "./subcomponents/comment-text";
     export default {
+      components:{  // 用来注册子组件的节点
+            Header,
+            'comment-box':comment,
+            'comment-text':comment_text,
+        },
         data(){
             return{
                 //测试是否获取到当前点击的类容ID 并将url地址传递过来，方便以后的调用
@@ -45,8 +53,7 @@ import comment_text from "./subcomponents/comment-text";
                 this.$router.go(-1);           //=>返回上一给页面
             },
             getNewsInfo(){  //获取新闻列
-                let JSONLIST = './static/Snake.json';
-                axios.get(JSONLIST).then(result => {
+                getSnake().then(result => {
                     if (result.data.status === 0){
                         //如果没有失败，应该把数据保存在data上
                         this.newsinfo = result.data.clothing.filter((item) => {
@@ -62,10 +69,6 @@ import comment_text from "./subcomponents/comment-text";
                 })
             },
         },
-        components:{  // 用来注册子组件的节点
-            'comment-box':comment,
-            'comment-text':comment_text,
-        }
     }
 </script>
 

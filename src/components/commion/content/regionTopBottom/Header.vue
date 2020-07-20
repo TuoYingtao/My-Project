@@ -25,8 +25,9 @@ export default {
   computed: {
     home: function() {
       this.folact = false;
-      if (this.$route.path === "/home") {
-        return (this.title = "鑫华服装");
+      if (this.$route.path !== "/home") {
+        // return (this.title = "鑫华服装");
+        return (this.folact = true);
       } else {
         return (this.folact = true);
         return (this.title = this.$route.meta.title);
@@ -63,7 +64,6 @@ export default {
   height: 40px;
   background-color: rgba(112, 33, 33, 0.349);
   z-index: 100;
-
 .mtHeader_search{
     position: relative;
     width: 70%;

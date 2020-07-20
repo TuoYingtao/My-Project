@@ -1,5 +1,6 @@
 <template>
   <div class="demo-type">
+    <mt-header class="mt-header" style="z-index: 2" fixed title="我的"/>
     <div class="title-img">
       <el-avatar :size="140" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
     </div>
@@ -72,6 +73,9 @@
 </script>
 
 <style lang="scss" scoped>
+  .mt-header{
+    background-color: rgba(112, 33, 33, 0.349);
+  }
   .demo-type{
     width: 100%;
     height: 800px;

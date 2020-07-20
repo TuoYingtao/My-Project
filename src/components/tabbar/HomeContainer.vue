@@ -21,7 +21,6 @@
       @scroll="contentScroll"
       @pullingUp="loadMore"
     >
-      <div></div>
       <!-- 轮播图区域  -->
       <chart ref="chart" class="chart" :chart-data="lunbotuList" @itemImageLoad="imageLoad" />
       <!--  六宫格 -->

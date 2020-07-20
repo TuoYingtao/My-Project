@@ -3,7 +3,7 @@
  * @Author: BeautifulGirl230
  * @Date: 2020-06-21 17:54:10
  * @Last Modified by: BeautifulGirl230
- * @Last Modified time: 2020-06-21 18:07:55
+ * @Last Modified time: 2020-07-20 14:30:42
  */
 
 <template>
@@ -13,6 +13,7 @@
 <!--        <mt-button icon="back" @click="text" slot="left">返回</mt-button>-->
 <!--    </mt-header>-->
     <!--  better-scroll滚动监听  -->
+    <Header/>
     <top-rocket @click.native="backTopClick" v-show="isShowBackTop"/>
     <scroll class="scroll"
             ref="scroll"
@@ -27,12 +28,15 @@
 </template>
 
 <script>
+  import Header from "@/components/commion/content/regionTopBottom/Header";
+  import { getSnake } from "@/api/request"; //=> axios请求
   import Commodity from "../commion/List/Commodity";      //引入列表
   import Scroll from "../commion/scroll/Scroll";          //引入Scroll滚动
   import TopRocket from "../commion/BackTool/TopRocket";  //回到顶部火箭
   import { Toast } from "mint-ui";
     export default {
       components:{
+        Header,
         Commodity,    //注册列表
         Scroll,       //注册滚动
         TopRocket,    //注册回到顶部火箭
@@ -60,7 +64,7 @@
             },
             getClothes(){
                 this.$forceUpdate();
-                axios.get('./static/Snake.json').then((result) => {
+                getSnake().then((result) => {
                     if (result.data.status === 0){
                         this.list = result.data.souper;
                         this.Clothes = result.data.clothing;
