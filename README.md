@@ -2,13 +2,17 @@
 
 > Vue.js 服装商城App
 
-## 效果
+## 效果图
 
 ![image](https://github.com/BeautifulGirl230/My-Project/blob/master/jietu/text1.JPG) 
 ![image](https://github.com/BeautifulGirl230/My-Project/blob/master/jietu/text2.JPG)
 ![image](https://github.com/BeautifulGirl230/My-Project/blob/master/jietu/text3.JPG)
 ![image](https://github.com/BeautifulGirl230/My-Project/blob/master/jietu/text4.JPG)
 ![image](https://github.com/BeautifulGirl230/My-Project/blob/master/jietu/text5.JPG)
+![image](https://github.com/BeautifulGirl230/My-Project/blob/master/jietu/text6.JPG)
+![image](https://github.com/BeautifulGirl230/My-Project/blob/master/jietu/text7.JPG)
+![image](https://github.com/BeautifulGirl230/My-Project/blob/master/jietu/text8.JPG)
+![image](https://github.com/BeautifulGirl230/My-Project/blob/master/jietu/text9.JPG)
 
 ### Build Setup
 ``` bash
