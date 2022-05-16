@@ -20,7 +20,7 @@
     "less": "^3.11.3",
     "less-loader": "^4.1.0",
     "mint-ui": "^2.2.13",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "postcss-pxtorem": "^5.0.0",
     "qs": "^6.9.1",
     "require": "^2.4.20",
